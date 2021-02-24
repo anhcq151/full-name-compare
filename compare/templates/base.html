@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Công cụ so sánh tên hành khách</title>
+        {% endif %}
+    </head>
+    <body>
+        <div><button type="button" onclick="window.location.href='{{ url_for('index') }}'">Home</button></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

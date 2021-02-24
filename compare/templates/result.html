@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <caption><h2>Kết quả so sánh</h2></caption>
+        <tr>
+            <th>DANH SÁCH BAN ĐẦU</th>
+            <th>DANH SÁCH CUỐI</th>
+        </tr>
+        {% for item in result %}
+        <tr>
+            {% if isinstance(item[0], str) %}
+                <td>{{ item[0] }}</td>
+            {% else %}
+                <td>
+                {% for name in item[0] %}
+                    <p>{{ name }}</p>
+                {% endfor %}
+                </td>
+            {% endif %}
+            {% if isinstance(item[1], str) %}
+                <td>{{ item[1] }}</td>
+            {% else %}
+                <td>
+                {% for name in item[1] %}
+                    <p>{{ name }}</p>
+                {% endfor %}
+                </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

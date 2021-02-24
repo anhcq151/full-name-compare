@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Công cụ so sánh tên hành khách</h1>
+    <h3></h3>
+    <form action="" method="POST">
+        {{ input_data.hidden_tag() }}
+        <p>
+            {{ input_data.original_list.label }}<br>
+            {{ input_data.original_list }}<br>
+            {{ input_data.change_list.label }}<br>
+            {{ input_data.change_list }}<br>
+        </p>
+        <p>
+            {{ input_data.submit() }}
+        </p>
+    </form>
+{% endblock %}
