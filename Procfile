@@ -1,1 +1,1 @@
-full-name-compare-web: gunicorn compare:app
+web: gunicorn compare:app
