@@ -2,32 +2,47 @@
 
 {% block content %}
     <table>
-        <caption><h2>Kết quả so sánh</h2></caption>
+        <caption><h2>Danh sách tên cần đổi</h2></caption>
         <tr>
             <th>DANH SÁCH BAN ĐẦU</th>
             <th>DANH SÁCH CUỐI</th>
         </tr>
-        {% for item in result %}
         <tr>
-            {% if isinstance(item[0], str) %}
-                <td>{{ item[0] }}</td>
-            {% else %}
-                <td>
-                {% for name in item[0] %}
-                    <p>{{ name }}</p>
-                {% endfor %}
-                </td>
-            {% endif %}
-            {% if isinstance(item[1], str) %}
-                <td>{{ item[1] }}</td>
-            {% else %}
-                <td>
-                {% for name in item[1] %}
-                    <p>{{ name }}</p>
-                {% endfor %}
-                </td>
-            {% endif %}
+            <td>
+            {% for item in original %}
+                <li>{{ item }}</li>
+            {% endfor %}
+            </td>
+            <td>
+            {% for item in change %}
+                <li>{{ item }}</li>
+            {% endfor %}
+            </td>
+        </tr>
+    </table>
+    {% if name_match %}
+    <table>
+        <caption><h2>Danh sách tên cần lưu ý</h2></caption>
+        <tr>
+            <th>DANH SÁCH BAN ĐẦU</th>
+            <th>DANH SÁCH CUỐI</th>
+        </tr>
+        {% for item in name_match.items(): %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
         </tr>
         {% endfor %}
     </table>
+    {% endif %}
+    {% if no_change %}
+    <table>
+        <caption><h2>Danh sách hành khách không cần đổi tên</h2></caption>
+        {% for item in no_change %}
+        <tr>
+            <td>{{ item }}<td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 {% endblock %}
