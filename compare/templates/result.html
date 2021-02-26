@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% if  %}{% endif %}
     <table>
         <caption><h2>Danh sách tên cần đổi</h2></caption>
         <tr>
-            <th>DANH SÁCH BAN ĐẦU</th>
-            <th>DANH SÁCH CUỐI</th>
+            <th>TRƯỚC</th>
+            <th>SAU</th>
         </tr>
         <tr>
             <td>
@@ -24,8 +25,8 @@
     <table>
         <caption><h2>Danh sách tên cần lưu ý</h2></caption>
         <tr>
-            <th>DANH SÁCH BAN ĐẦU</th>
-            <th>DANH SÁCH CUỐI</th>
+            <th>TRƯỚC</th>
+            <th>SAU</th>
         </tr>
         {% for item in name_match.items(): %}
         <tr>
