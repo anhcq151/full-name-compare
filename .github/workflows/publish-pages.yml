@@ -1,0 +1,34 @@
+name: publish-pages
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened, closed ]
+    branches: [ main, master ]
+    paths:
+      - '.github/workflows/publish-pages.yml'
+      - '*/*.md'
+  push:
+    branches: [ main, master ]
+    paths:
+      - '.github/workflows/publish-pages.yml'
+      - '*/*.md'
+
+env:
+  APP_CODE: vpnc
+  PYTHON_VERSION: 3.7.10-slim-stretch
+  PLATFORMS: linux/amd64,linux/arm/v7
+
+jobs:
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: deploy to github pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: github-pages
+          build_dir: pages
